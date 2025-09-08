@@ -137,16 +137,40 @@
         <p>Your trusted resource for what to buy when starting something new.</p>
     </header>
     <section class="intro">
-        <h2>Start Your Journey with Confidence</h2>
-        <p>
-            Wondering what you need for your first adventure, hobby, or activity? This website is dedicated to helping beginners choose the right gear for their first experience—whether it's skiing, camping, cooking, or any new pursuit. We provide clear, practical guidance so you can buy with confidence and enjoy your new activity from day one.
-        </p>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+            <div style="flex: 1 1 180px; min-width: 180px;">
+                <img src="https://img.icons8.com/fluency/96/compass.png" alt="Compass Icon" style="width:80px; height:80px; margin-bottom:1rem;">
+            </div>
+            <div style="flex: 2 1 320px; min-width: 220px; text-align: left;">
+                <h2 style="margin-top:0;">Start Your Journey with Confidence</h2>
+                <p>
+                    Not sure what gear to buy for your first adventure or hobby? <strong>Beginner's Gear Guide</strong> gives you simple advice and top picks, so you can start with confidence.
+                </p>
+                <a href="#features" style="display:inline-block; margin-top:1.2rem; background:var(--accent); color:#fff; padding:0.7rem 1.4rem; border-radius:8px; text-decoration:none; font-weight:500; box-shadow:0 2px 8px rgba(0,0,0,0.07); transition:background 0.2s;">Explore Guides</a>
+            </div>
+        </div>
     </section>
-    <section class="features">
+    <section class="features" id="features">
+        <div style="width:100%; text-align:center; margin-bottom:2rem; position:relative; display:inline-flex; align-items:center; justify-content:center;">
+            <span style="position:relative; left:0; margin-right:-2.2rem; z-index:2;">
+                <svg width="20" height="20" fill="none" stroke="#007aff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="7"/>
+                    <line x1="16.5" y1="16.5" x2="21" y2="21"/>
+                </svg>
+            </span>
+            <input 
+                type="text" 
+                id="feature-search" 
+                placeholder="Search for an activity (e.g. cycling, cooking, art...)" 
+                style="width:400px; max-width:90%; padding:0.7rem 1rem 0.7rem 2.5rem; border-radius:8px; border:1px solid var(--border); font-size:1.05rem; box-shadow:0 2px 8px rgba(0,0,0,0.04);"
+            >
+        </div>
         <div class="feature">
+            <a href="ski.html" style="text-decoration:none; color:inherit; display:block;">
             <span class="feature-icon">⛷️</span>
             <h3>First-Time Skiing</h3>
             <p>Discover the essential gear for your first ski trip, from boots to jackets.</p>
+            </a>
         </div>
         <div class="feature">
             <span class="feature-icon">🏕️</span>
@@ -173,6 +197,64 @@
             <h3>Photography Essentials</h3>
             <p>Discover the basic gear for starting photography, from cameras to tripods.</p>
         </div>
+        <div class="feature">
+            <span class="feature-icon">🏊‍♂️</span>
+            <h3>Swimming for Beginners</h3>
+            <p>Learn what swimwear and accessories you need for your first swim session.</p>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">🧗‍♂️</span>
+            <h3>Climbing Starter Gear</h3>
+            <p>Find out the essential equipment for your first climbing adventure.</p>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">🛹</span>
+            <h3>Skateboarding Basics</h3>
+            <p>Discover what board and safety gear you need to start skateboarding.</p>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">🎨</span>
+            <h3>Art Supplies for Beginners</h3>
+            <p>Find out what paints, brushes, and paper you need to start creating art.</p>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">🧘‍♂️</span>
+            <h3>Yoga Starter Kit</h3>
+            <p>Discover the basic gear for your first yoga session, from mats to blocks.</p>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">🏸</span>
+            <h3>Badminton Essentials</h3>
+            <p>Learn what racket, shuttlecocks, and shoes you need to start playing badminton.</p>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">🥾</span>
+            <h3>Hiking for Beginners</h3>
+            <p>Get recommendations for boots, backpacks, and outdoor essentials for your first hike.</p>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">🛶</span>
+            <h3>Kayaking Starter Gear</h3>
+            <p>Find out what kayak, paddle, and safety gear you need for your first trip on the water.</p>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">🏂</span>
+            <h3>Snowboarding Basics</h3>
+            <p>Discover what board, boots, and clothing you need to start snowboarding.</p>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const searchInput = document.getElementById('feature-search');
+                const features = document.querySelectorAll('.feature');
+                searchInput.addEventListener('input', function() {
+                    const query = searchInput.value.toLowerCase();
+                    features.forEach(feature => {
+                        const text = feature.textContent.toLowerCase();
+                        feature.style.display = text.includes(query) ? '' : 'none';
+                    });
+                });
+            });
+        </script>
     </section>
     <footer>
         <p>Ready to begin something new? Explore our guides and make your first purchase with confidence!</p>
