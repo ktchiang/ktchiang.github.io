@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Emoji-only Home Screen icon -->
+  <title>🎂</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="🎂">
+
+  <style>
+    body {
+      margin: 0;
+      padding-top: 160px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: linear-gradient(135deg, #5b21b6, #7c3aed);
+      overflow-x: hidden;
+    }
+
+    .box {
+      background-color: rgba(30,41,59,0.95);
+      width: 360px;
+      margin: auto;
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 14px 28px;
+      font-size: 18px;
+      border: none;
+      border-radius: 14px;
+      background-color: #a855f7;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #7c3aed;
+    }
+
+    /* ANGLED BANNER */
+    .banner {
+      position: fixed;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 85%;
+      height: 120px;
+      background: linear-gradient(135deg, #3b0764, #5b21b6, #7c3aed);
+      clip-path: polygon(6% 0%,94% 0%,100% 50%,94% 100%,6% 100%,0% 50%);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      box-shadow:
+        0 18px 40px rgba(0,0,0,0.45),
+        0 0 24px rgba(168,85,247,0.7);
+      z-index: 5;
+    }
+
+    /* VISUAL SEPARATOR */
+    .banner::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 10%;
+      width: 80%;
+      height: 2px;
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* PROFILE CARD */
+    .profile {
+      display: none;
+      margin: 35px auto;
+      width: 320px;
+      padding: 22px;
+      border-radius: 18px;
+      background: linear-gradient(145deg, #7c3aed, #a855f7);
+      border: 2px solid rgba(255,255,255,0.18);
+      box-shadow:
+        0 12px 40px rgba(0,0,0,0.35),
+        0 0 18px rgba(168,85,247,0.7);
+      text-align: center;
+    }
+
+    .achievements {
+      margin-top: 14px;
+    }
+
+    .achievements h4 {
+      margin: 8px 0;
+    }
+
+    .achievement {
+      background: rgba(0,0,0,0.2);
+      padding: 10px 14px;
+      border-radius: 12px;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    /* CONFETTI */
+    canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      display: none;
+      z-index: 1;
+    }
+
+    /* BALLOONS */
+    .balloon {
+      position: fixed;
+      bottom: -100px;
+      width: 40px;
+      height: 55px;
+      border-radius: 50% 50% 45% 45%;
+      background: radial-gradient(circle at 30% 30%, #ede9fe, #a855f7);
+      animation: floatUp linear forwards;
+      z-index: 2;
+    }
+
+    .balloon::after {
+      content: "";
+      position: absolute;
+      top: 55px;
+      left: 50%;
+      width: 2px;
+      height: 40px;
+      background: rgba(255,255,255,0.6);
+      transform: translateX(-50%);
+    }
+
+    @keyframes floatUp {
+      to { transform: translateY(-120vh); opacity: 0; }
+    }
+
+    /* FOOTER */
+    .made-for-you {
+      display: none;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* REPLAY BUTTON */
+    .replay {
+      display: none;
+      margin: 30px auto;
+      background: linear-gradient(135deg, #a855f7, #ec4899);
+      color: white;
+      box-shadow:
+        0 8px 20px rgba(0,0,0,0.35),
+        0 0 16px rgba(236,72,153,0.6);
+    }
+
+    .replay:hover {
+      background: linear-gradient(135deg, #9333ea, #db2777);
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="confetti"></canvas>
+
+  <div id="start" class="box">
+    <h1>Free Robux</h1>
+    <p>
+      Click the button below to claim your free Robux.<br><br>
+      No download required.<br>
+      100% real.
+    </p>
+    <button onclick="celebrate()">Claim Now</button>
+  </div>
+
+  <div id="banner" class="banner">
+    <h2>HAPPY BIRTHDAY</h2>
+    <p>🎂 Happy Birthday MaeMae! 🎉</p>
+  </div>
+
+  <div id="profile" class="profile">
+    <h3>🎮 Player Profile</h3>
+    <div>👑 Name: <strong>MaeMae</strong></div>
+    <div>🎂 Level: <strong>1,000,000,000</strong></div>
+    <div>🎨 Skill: <strong>ART MASTER</strong></div>
+    <div>💜 Favorite Color: <strong>PURPLE</strong></div>
+    <div>🎮 Game Mode: <strong>ROBLOX</strong></div>
+
+    <div class="achievements">
+      <h4>🏆 Achievements</h4>
+      <div class="achievement">💜 +100 Friendship</div>
+      <div class="achievement">🎨 +250 Creativity</div>
+      <div class="achievement">⭐ Birthday Level Up</div>
+      <div class="achievement">🎉 Infinite Fun Unlocked</div>
+    </div>
+  </div>
+
+  <footer id="footer" class="made-for-you">
+    Made just for you, MaeMae 💜
+  </footer>
+
+  <button id="replay" class="replay" onclick="replay()">🔁 Replay Celebration</button>
+
+  <script>
+    const canvas = document.getElementById("confetti");
+    const ctx = canvas.getContext("2d");
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    function launchConfetti() {
+      canvas.style.display = "block";
+      const pieces = Array.from({ length: 120 }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * -canvas.height,
+        size: 6,
+        speed: 3,
+        color: ["#facc15","#a855f7","#22c55e","#fb7185","#ffffff"][Math.floor(Math.random()*5)]
+      }));
+
+      function draw() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        pieces.forEach(p => {
+          p.y += p.speed;
+          ctx.fillStyle = p.color;
+          ctx.fillRect(p.x,p.y,p.size,p.size);
+        });
+        if (pieces.some(p => p.y < canvas.height)) requestAnimationFrame(draw);
+        else canvas.style.display = "none";
+      }
+      draw();
+    }
+
+    function launchBalloons() {
+      for (let i=0;i<10;i++) {
+        setTimeout(()=>{
+          const b = document.createElement("div");
+          b.className = "balloon";
+          b.style.left = Math.random()*window.innerWidth+"px";
+          b.style.animationDuration = (Math.random()*4+6)+"s";
+          document.body.appendChild(b);
+          setTimeout(()=>b.remove(),10000);
+        }, i*300);
+      }
+    }
+
+    function celebrate() {
+      document.getElementById("start").style.display="none";
+      launchConfetti();
+      launchBalloons();
+      setTimeout(()=>{ 
+        document.getElementById("banner").style.display="flex";
+        document.getElementById("profile").style.display="block";
+      },3000);
+      setTimeout(()=>document.getElementById("footer").style.display="block",6000);
+      setTimeout(()=>document.getElementById("replay").style.display="block",8000);
+    }
+
+    function replay() {
+  // Reset canvas state
+  canvas.style.display = "block";
+  resizeCanvas();
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Restart effects
+  launchConfetti();
+  launchBalloons();
+}
+  </script>
+
+</body>
+</html>
